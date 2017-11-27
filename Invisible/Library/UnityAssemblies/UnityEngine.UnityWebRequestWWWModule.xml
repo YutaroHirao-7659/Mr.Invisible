@@ -4,11 +4,11 @@
 		<name>UnityEngine.UnityWebRequestWWWModule</name>
 	</assembly>
 	<members>
-		<member name="T:UnityEngine.WWWAudioExtensions">
-			<summary>Provides methods to access AudioClip or MovieTexture objects from WWW streams.</summary>
-		</member>
 		<member name="T:UnityEngine.WWW">
 			<summary>Simple access to web pages.</summary>
+		</member>
+		<member name="T:UnityEngine.WWWAudioExtensions">
+			<summary>Provides methods to access AudioClip or MovieTexture objects from WWW streams.</summary>
 		</member>
 		<member name="P:UnityEngine.WWW.assetBundle">
 			<summary>Streams an AssetBundle that can contain any kind of asset from the project folder.</summary>

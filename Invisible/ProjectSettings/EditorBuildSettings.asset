@@ -6,5 +6,5 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Mine/Scenes/Indication.unity
-    guid: 3446b212eb6dfe943b0f7c6aee00d9e2
+    path: Assets/Mine/Scenes/SharingWithUnetTest.unity
+    guid: dacf65deec59aed438869ee2ad5b0a29

@@ -1,6 +1,10 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
-        <UnityWSAPlayerDir>C:\Program Files\Unity2017\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
-        <UnityWSAToolsDir>$(SolutionDir)Unity\Tools\</UnityWSAToolsDir>
+        <UnityWSASolutionName>UnetSharingTest</UnityWSASolutionName>
+        <UnityWSASolutionDir>C:\Users\yutah\Desktop\Mr.Invisible\Invisible\App\</UnityWSASolutionDir>
+        <UnityProjectDir>C:\Users\yutah\Desktop\Mr.Invisible\Invisible\</UnityProjectDir>
+        <UnityWSAPlayerDir>C:\Program Files\Editor\Data\PlaybackEngines\MetroSupport\</UnityWSAPlayerDir>
+        <UnityWSAToolsDir>$(UnityWSASolutionDir)Unity\Tools\</UnityWSAToolsDir>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
 </Project>

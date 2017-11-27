@@ -219,7 +219,7 @@ namespace HoloToolkit.Unity.SharingWithUNET
             else
             {
                 Debug.Log("remote player");
-                GetComponentInChildren<MeshRenderer>().material.color = Color.red;
+                //GetComponentInChildren<MeshRenderer>().material.color = Color.red;
                 AnchorEstablishedChanged(AnchorEstablished);
                 SharesAnchorsChanged(SharesSpatialAnchors);
             }
@@ -304,7 +304,7 @@ namespace HoloToolkit.Unity.SharingWithUNET
         /// </summary>
         public override void OnStartLocalPlayer()
         {
-            GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
+            //GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
         }
 
         /// <summary>

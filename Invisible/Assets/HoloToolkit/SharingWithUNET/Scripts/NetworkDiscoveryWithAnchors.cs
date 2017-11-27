@@ -237,6 +237,7 @@ namespace HoloToolkit.Unity.SharingWithUNET
         {
             ServerIp = fromAddress.Substring(fromAddress.LastIndexOf(':') + 1);
             SessionInfo sessionInfo;
+
             if (remoteSessions.TryGetValue(ServerIp, out sessionInfo) == false)
             {
                 Debug.Log("new session: " + fromAddress);
