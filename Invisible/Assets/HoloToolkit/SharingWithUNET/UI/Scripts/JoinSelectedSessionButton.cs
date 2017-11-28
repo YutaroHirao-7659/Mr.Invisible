@@ -6,7 +6,7 @@ using HoloToolkit.Unity.InputModule;
 namespace HoloToolkit.Unity.SharingWithUNET
 {
 
-    public class JoinSelectedSessionButton : MonoBehaviour, IInputClickHandler
+    public class JoinSelectedSessionButton : MonoBehaviour, IInputClickHandler, IFocusable
     {
         /// <summary>
         /// Shader property id for the text color so we can change it when selected.
@@ -32,6 +32,8 @@ namespace HoloToolkit.Unity.SharingWithUNET
         /// Script which manages finding and joining sessions.
         /// </summary>
         private NetworkDiscoveryWithAnchors networkDiscovery;
+
+        private bool isFocusing = false;
 
         private void Start()
         {
@@ -62,6 +64,15 @@ namespace HoloToolkit.Unity.SharingWithUNET
             {
                 textMaterial.SetColor(textColorId, Color.grey);
             }
+
+            if (isFocusing)
+            {
+                Debug.Log("Focusing");
+                if (Input.GetButtonDown("A"))
+                {
+                    ScrollingSessionListUIController.Instance.JoinSelectedSession();
+                }
+            }
         }
 
         /// <summary>
@@ -84,6 +95,16 @@ namespace HoloToolkit.Unity.SharingWithUNET
         {
             ScrollingSessionListUIController.Instance.JoinSelectedSession();
             eventData.Use();
+        }
+
+        public void OnFocusEnter()
+        {
+            isFocusing = true;
+        }
+
+        public void OnFocusExit()
+        {
+            isFocusing = false;
         }
     }
 }

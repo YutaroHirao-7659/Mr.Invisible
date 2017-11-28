@@ -8,7 +8,7 @@ namespace HoloToolkit.Unity.SharingWithUNET
     /// <summary>
     /// Represents a button on a list of sessions.  Tapping the button indicates the selected sessoin
     /// </summary>
-    public class SessionListButton : MonoBehaviour, IInputClickHandler
+    public class SessionListButton : MonoBehaviour, IInputClickHandler, IFocusable
     {
         /// <summary>
         /// Information about the session attached to this button
@@ -35,6 +35,9 @@ namespace HoloToolkit.Unity.SharingWithUNET
         /// </summary>
         private ScrollingSessionListUIController scrollingUIController;
 
+
+        private bool isFocusing = false;
+
         /// <summary>
         /// When the control gets started we need to do some setup.
         /// </summary>
@@ -48,6 +51,19 @@ namespace HoloToolkit.Unity.SharingWithUNET
             {
                 Debug.Log("without a scrolling UI control, this button can't work");
                 Destroy(this);
+            }
+        }
+
+        private void Update()
+        {
+            if (isFocusing)
+            {
+                Debug.Log("Focusing");
+                if (Input.GetButtonDown("A"))
+                {
+                    Debug.Log("A button");
+                    scrollingUIController.SetSelectedSession(SessionInfo);
+                }
             }
         }
 
@@ -96,6 +112,16 @@ namespace HoloToolkit.Unity.SharingWithUNET
         {
             scrollingUIController.SetSelectedSession(SessionInfo);
             eventData.Use();
+        }
+
+        public void OnFocusEnter()
+        {
+            isFocusing = true;
+        }
+
+        public void OnFocusExit()
+        {
+            isFocusing = false;
         }
     }
 }

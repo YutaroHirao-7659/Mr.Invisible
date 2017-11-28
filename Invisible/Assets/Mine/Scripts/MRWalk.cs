@@ -30,8 +30,8 @@ public class MRWalk : MonoBehaviour
     void Update()
     {
         //移動
-        float leftX = Input.GetAxis("LeftStickX");
-        float leftY = Input.GetAxis("LeftStickY");
+        float leftX = Input.GetAxis("ControllerLeftStickX");
+        float leftY = Input.GetAxis("ControllerLeftStickY");
         leftY *= -1;
         Debug.Log("LeftX is : " + leftX + ", LeftY is : " + leftY);
         //前進だけスピード変える

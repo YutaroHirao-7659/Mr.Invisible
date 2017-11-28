@@ -26,16 +26,16 @@ namespace HoloToolkit.Unity.InputModule
     public class MixedRealityTeleport : Singleton<MixedRealityTeleport>, IControllerInputHandler
     {
         [Tooltip("Name of the thumbstick axis to check for teleport and strafe.")]
-        public string LeftThumbstickX = "CONTROLLER_LEFT_STICK_HORIZONTAL";
+        public string LeftThumbstickX = "ControllerLeftStickX";
 
         [Tooltip("Name of the thumbstick axis to check for teleport and strafe.")]
-        public string LeftThumbstickY = "CONTROLLER_LEFT_STICK_VERTICAL";
+        public string LeftThumbstickY = "ControllerLeftStickY";
 
         [Tooltip("Name of the thumbstick axis to check for rotation.")]
-        public string RightThumbstickX = "CONTROLLER_RIGHT_STICK_HORIZONTAL";
+        public string RightThumbstickX = "ControllerRightStickX";
 
         [Tooltip("Name of the thumbstick axis to check for rotation.")]
-        public string RightThumbstickY = "CONTROLLER_RIGHT_STICK_VERTICAL";
+        public string RightThumbstickY = "ControllerRightStickY";
 
         public bool EnableTeleport = true;
         public bool EnableRotation = true;

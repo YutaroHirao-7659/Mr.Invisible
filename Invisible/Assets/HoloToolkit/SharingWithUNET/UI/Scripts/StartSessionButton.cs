@@ -15,6 +15,8 @@ namespace HoloToolkit.Unity.SharingWithUNET
         /// </summary>
         private NetworkDiscoveryWithAnchors networkDiscovery;
 
+        private bool isFocus = false;
+
         private void Start()
         {
             networkDiscovery = NetworkDiscoveryWithAnchors.Instance;
@@ -31,6 +33,37 @@ namespace HoloToolkit.Unity.SharingWithUNET
                 Destroy(gameObject);
             }
 #endif
+        }
+
+        private void Update()
+        {
+            if (isFocus)
+            {
+                Debug.Log("Focusing");
+                if (Input.GetButtonDown("A"))
+                {
+                    if (networkDiscovery.running)
+                    {
+                        // Only let HoloLens host
+                        // We are also allowing the editor to host for testing purposes, but shared anchors
+                        // will currently not work in this mode.
+
+                        if (
+#if UNITY_WSA && UNITY_2017_2_OR_NEWER
+                    !UnityEngine.XR.WSA.HolographicSettings.IsDisplayOpaque ||
+#endif
+                    Application.isEditor)
+                        {
+                            if (Application.isEditor)
+                            {
+                                Debug.Log("Unity editor can host, but World Anchors will not be shared");
+                            }
+
+                            networkDiscovery.StartHosting("DefaultName");
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -60,6 +93,16 @@ namespace HoloToolkit.Unity.SharingWithUNET
                     eventData.Use();
                 }
             }
+        }
+
+        public void OnFocusEnter()
+        {
+            isFocus = true;
+        }
+
+        public void OnFocusExit()
+        {
+            isFocus = false;
         }
     }
 }
